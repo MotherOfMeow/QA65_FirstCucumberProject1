@@ -16,7 +16,7 @@ public class LoginSteps {
     }
     @And("User enters valid data")
     public void enter_valid_data(){
-        new LoginPage(driver).enterData("Test321@gmail.com","Test12345$");
+        new LoginPage(driver).enterData("test222@gmail.com","Test12345!");
 
     }
     @And("User clicks on Yalla button")
@@ -26,7 +26,7 @@ public class LoginSteps {
     }
     @Then("User verifies Success message is displayed")
     public void verify_Success_message(){
-        new LoginPage(driver).isMessageTextPresent("Logged in success");
+        new LoginPage(driver).isSuccessTextPresent("Logged in success");
 
     }
     @And("User enters valid email and wrong password")
@@ -36,7 +36,12 @@ public class LoginSteps {
     }
     @Then("User verifies Error message is displayed")
     public void verify_Error_message_is_displayed(){
-        new LoginPage(driver).isMessageTextPresent("Login or Password incorrect");
+        new LoginPage(driver).isUnsuccessTextPresent("Login or Password incorrect");
 
+    }
+
+    @And("User clicks OK on the message")
+    public void click_ok_on_the_message() {
+        new LoginPage(driver).clickOnOkButton();
     }
 }
